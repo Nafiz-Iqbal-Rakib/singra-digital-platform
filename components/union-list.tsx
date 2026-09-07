@@ -109,10 +109,6 @@ export function UnionList() {
                 <p className="font-medium">
                   Singra Municipality
                 </p>
-
-                <p className="text-sm text-muted-foreground">
-                  Singra Pourashava
-                </p>
               </div>
             </div>
 

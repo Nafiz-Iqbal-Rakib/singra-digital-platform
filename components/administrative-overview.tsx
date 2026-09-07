@@ -1,34 +1,7 @@
 import { Reveal } from '@/components/reveal'
-import { LOCATION } from '@/lib/site-data'
+import { ADMIN_STATS, LOCATION } from '@/lib/site-data'
 
 export function AdministrativeOverview() {
-  const stats = [
-    {
-      label: 'Population',
-      value: '381,316',
-    },
-    {
-      label: 'Area',
-      value: '528.47 km²',
-    },
-    {
-      label: 'Households',
-      value: '100,939',
-    },
-    {
-      label: 'Literacy Rate',
-      value: '66.95%',
-    },
-    {
-      label: 'Union Parishads',
-      value: '12',
-    },
-    {
-      label: 'Municipality',
-      value: '1',
-    },
-  ]
-
   return (
     <section
       id="administration"
@@ -56,7 +29,7 @@ export function AdministrativeOverview() {
 
           <Reveal delay={120}>
             <dl className="grid grid-cols-2 gap-x-8 gap-y-10 sm:grid-cols-3">
-              {stats.map((stat) => (
+              {ADMIN_STATS.map((stat) => (
                 <div key={stat.label}>
                   <dt className="text-[11px] font-semibold uppercase tracking-[0.22em] text-primary-foreground/60">
                     {stat.label}
