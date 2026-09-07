@@ -6,7 +6,7 @@ import { FOODS } from '@/lib/site-data'
 
 export function FoodShowcase() {
   return (
-    <section className="mx-auto max-w-7xl px-5 py-24 md:px-8 md:py-32">
+    <section id="food" className="mx-auto max-w-7xl px-5 py-24 md:px-8 md:py-32">
       <div className="flex flex-wrap items-end justify-between gap-6">
         <SectionHeading
           eyebrow="Local Food"

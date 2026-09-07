@@ -18,11 +18,11 @@ export type NavLink = {
 export const NAV_LINKS: NavLink[] = [
   { label: 'Home', href: '/', section: 'top' },
   { label: 'About', href: '/#about', section: 'about' },
-  { label: 'Places', href: '/places' },
-  { label: 'Food', href: '/food' },
-  { label: 'Gallery', href: '/gallery' },
-  { label: 'Emergency', href: '/emergency' },
-  { label: 'Blood', href: '/blood', highlight: true },
+  { label: 'Places', href: '/places', section: 'places' },
+  { label: 'Food', href: '/food', section: 'food' },
+  { label: 'Gallery', href: '/gallery', section: 'gallery' },
+  { label: 'Emergency', href: '/emergency', section: 'emergency' },
+  { label: 'Blood', href: '/blood', section: 'blood', highlight: true },
 ]
 
 export const LOCATION = {
