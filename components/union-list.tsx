@@ -4,60 +4,10 @@ import { useState } from 'react'
 import { ChevronDown, Building2, MapPin } from 'lucide-react'
 import { Reveal } from '@/components/reveal'
 import { cn } from '@/lib/utils'
+import { UNIONS } from '@/lib/site-data'
 
 export function UnionList() {
   const [open, setOpen] = useState(false)
-
-  const unions = [
-    {
-      number: '01',
-      name: 'Sukash Union',
-    },
-    {
-      number: '02',
-      name: 'Dahia Union',
-    },
-    {
-      number: '03',
-      name: 'Italy Union',
-    },
-    {
-      number: '04',
-      name: 'Kalam Union',
-    },
-    {
-      number: '05',
-      name: 'Chamari Union',
-    },
-    {
-      number: '06',
-      name: 'Hatiandaha Union',
-    },
-    {
-      number: '07',
-      name: 'Lalore Union',
-    },
-    {
-      number: '08',
-      name: 'Sherkole Union',
-    },
-    {
-      number: '09',
-      name: 'Tajpur Union',
-    },
-    {
-      number: '10',
-      name: 'Chaugram Union',
-    },
-    {
-      number: '11',
-      name: 'Chhatardighi Union',
-    },
-    {
-      number: '12',
-      name: 'Ramananda Khajura Union',
-    },
-  ]
 
   return (
     <section className="mx-auto max-w-7xl px-5 py-8 md:px-8 md:py-12">
@@ -114,7 +64,7 @@ export function UnionList() {
 
             {/* Union Parishads */}
             <ul className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-              {unions.map((union) => (
+              {UNIONS.map((union) => (
                 <li
                   key={union.number}
                   className="
@@ -145,8 +95,8 @@ export function UnionList() {
 
             {/* Summary */}
             <p className="mt-5 text-sm text-muted-foreground">
-              Singra Upazila consists of 1 municipality and 12 union
-              parishads.
+              Singra Upazila consists of 1 municipality and {UNIONS.length}{' '}
+              union parishads.
             </p>
 
           </div>

@@ -1,6 +1,7 @@
 'use client'
 
 import { ArrowDown, MapPin } from 'lucide-react'
+import { HERO } from '@/lib/site-data'
 
 export function Hero() {
   const scrollToAbout = () => {
@@ -29,8 +30,8 @@ export function Hero() {
       <div className="absolute inset-0">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
-          src="/images/hero.png"
-          alt="Aerial view of Singra's rivers, wetlands and green fields at sunrise"
+          src={HERO.image}
+          alt={HERO.imageAlt}
           className="h-full w-full animate-kenburns object-cover"
         />
 
@@ -42,23 +43,22 @@ export function Hero() {
       <div className="relative z-10 mx-auto w-full max-w-7xl px-5 md:px-8">
         <div className="max-w-3xl">
           <p className="mb-6 text-sm font-medium uppercase tracking-[0.4em] text-white/80">
-            Discover Singra
+            {HERO.eyebrow}
           </p>
 
           <h1 className="font-serif text-[19vw] font-semibold leading-[0.9] tracking-tight text-white sm:text-8xl md:text-9xl lg:text-[10rem]">
-            SINGRA
+            {HERO.title}
           </h1>
 
           <p className="mt-4 text-lg font-light tracking-wide text-white/85 md:text-xl">
-            Natore, Bangladesh
+            {HERO.location}
           </p>
 
           <p className="mt-8 max-w-xl text-pretty font-serif text-2xl italic leading-snug text-white md:text-3xl">
-            Where Nature Meets Heritage.
+            {HERO.tagline}
           </p>
 
           <div className="mt-10 flex flex-col items-start gap-6 sm:flex-row sm:items-center">
-            {/* Explore Singra */}
             <button
               type="button"
               onClick={scrollToAbout}
@@ -71,7 +71,7 @@ export function Hero() {
 
             <span className="inline-flex items-center gap-2 text-sm text-white/80">
               <MapPin className="h-4 w-4" aria-hidden />
-              Singra, Natore, Bangladesh
+              {HERO.mapLocation}
             </span>
           </div>
         </div>

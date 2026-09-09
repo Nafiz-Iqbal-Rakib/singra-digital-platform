@@ -1,9 +1,16 @@
 /**
  * Central content and data for the Singra website.
  *
- * Administrative information is based on available official/public
- * information for Singra Upazila, Natore.
+ * All website content is kept here so that components
+ * do not need to contain hardcoded site data.
+ *
+ * Later, this data layer can be connected to Firebase
+ * without changing the overall component structure.
  */
+
+/* ============================================================
+   NAVIGATION
+============================================================ */
 
 export type NavLink = {
   label: string
@@ -14,13 +21,42 @@ export type NavLink = {
 }
 
 export const NAV_LINKS: NavLink[] = [
-  { label: 'Home', href: '/', section: 'top' },
-  { label: 'About', href: '/#about', section: 'about' },
-  { label: 'Places', href: '/places', section: 'places' },
-  { label: 'Food', href: '/food', section: 'food' },
-  { label: 'Gallery', href: '/gallery', section: 'gallery' },
-  { label: 'Emergency', href: '/emergency', section: 'emergency' },
-  { label: 'Blood', href: '/blood', section: 'blood', highlight: true },
+  {
+    label: 'Home',
+    href: '/',
+    section: 'top',
+  },
+  {
+    label: 'About',
+    href: '/#about',
+    section: 'about',
+  },
+  {
+    label: 'Places',
+    href: '/places',
+    section: 'places',
+  },
+  {
+    label: 'Food',
+    href: '/food',
+    section: 'food',
+  },
+  {
+    label: 'Gallery',
+    href: '/gallery',
+    section: 'gallery',
+  },
+  {
+    label: 'Emergency',
+    href: '/emergency',
+    section: 'emergency',
+  },
+  {
+    label: 'Blood',
+    href: '/blood',
+    section: 'blood',
+    highlight: true,
+  },
 ]
 
 /* ============================================================
@@ -33,6 +69,81 @@ export const LOCATION = {
   division: 'Rajshahi',
   country: 'Bangladesh',
 }
+
+/* ============================================================
+   HERO
+============================================================ */
+
+export const HERO = {
+  eyebrow: 'Discover Singra',
+  title: 'SINGRA',
+  location: 'Natore, Bangladesh',
+  tagline: 'Where Nature Meets Heritage.',
+  mapLocation: 'Singra, Natore, Bangladesh',
+  image: '/images/hero.png',
+  imageAlt:
+    "Aerial view of Singra's rivers, wetlands and green fields at sunrise",
+}
+
+/* ============================================================
+   UNION PARISHADS
+============================================================ */
+
+export type Union = {
+  number: string
+  name: string
+}
+
+export const UNIONS: Union[] = [
+  {
+    number: '01',
+    name: 'Sukash Union',
+  },
+  {
+    number: '02',
+    name: 'Dahia Union',
+  },
+  {
+    number: '03',
+    name: 'Italy Union',
+  },
+  {
+    number: '04',
+    name: 'Kalam Union',
+  },
+  {
+    number: '05',
+    name: 'Chamari Union',
+  },
+  {
+    number: '06',
+    name: 'Hatiandaha Union',
+  },
+  {
+    number: '07',
+    name: 'Lalore Union',
+  },
+  {
+    number: '08',
+    name: 'Sherkole Union',
+  },
+  {
+    number: '09',
+    name: 'Tajpur Union',
+  },
+  {
+    number: '10',
+    name: 'Chaugram Union',
+  },
+  {
+    number: '11',
+    name: 'Chhatardighi Union',
+  },
+  {
+    number: '12',
+    name: 'Ramananda Khajura Union',
+  },
+]
 
 /* ============================================================
    ADMINISTRATIVE STATISTICS
@@ -61,56 +172,13 @@ export const ADMIN_STATS = [
   },
   {
     label: 'Union Parishads',
-    value: '12',
+    value: String(UNIONS.length),
     hint: 'Union Parishads under Singra Upazila',
   },
   {
     label: 'Municipality',
     value: '01',
     hint: 'Singra Municipality',
-  },
-]
-
-/* ============================================================
-   UNION PARISHADS
-============================================================ */
-
-export const UNIONS: { name: string }[] = [
-  {
-    name: 'Sukash Union',
-  },
-  {
-    name: 'Dahia Union',
-  },
-  {
-    name: 'Italy Union',
-  },
-  {
-    name: 'Kalam Union',
-  },
-  {
-    name: 'Chamari Union',
-  },
-  {
-    name: 'Hatiandaha Union',
-  },
-  {
-    name: 'Lalore Union',
-  },
-  {
-    name: 'Sherkole Union',
-  },
-  {
-    name: 'Tajpur Union',
-  },
-  {
-    name: 'Chaugram Union',
-  },
-  {
-    name: 'Chhatardighi Union',
-  },
-  {
-    name: 'Ramananda Khajura Union',
   },
 ]
 
@@ -239,7 +307,13 @@ export const FOODS: Food[] = [
    GALLERY
 ============================================================ */
 
-export const GALLERY = [
+export type GalleryItem = {
+  src: string
+  alt: string
+  span: 'tall' | 'wide' | 'normal'
+}
+
+export const GALLERY: GalleryItem[] = [
   {
     src: '/images/gallery-1.png',
     alt: 'Boat crossing calm water at sunrise',
@@ -346,25 +420,21 @@ export const BLOOD_GROUPS = [
 
 export const AREAS = [
   'Singra Municipality',
-  'Sukash Union',
-  'Dahia Union',
-  'Italy Union',
-  'Kalam Union',
-  'Chamari Union',
-  'Hatiandaha Union',
-  'Lalore Union',
-  'Sherkole Union',
-  'Tajpur Union',
-  'Chaugram Union',
-  'Chhatardighi Union',
-  'Ramananda Khajura Union',
+  ...UNIONS.map((union) => union.name),
 ]
 
 /* ============================================================
    SAMPLE BLOOD DONORS
 ============================================================ */
 
-export const SAMPLE_DONORS = [
+export type BloodDonor = {
+  name: string
+  group: string
+  area: string
+  lastDonation: string
+}
+
+export const SAMPLE_DONORS: BloodDonor[] = [
   {
     name: 'Donor A',
     group: 'O+',
